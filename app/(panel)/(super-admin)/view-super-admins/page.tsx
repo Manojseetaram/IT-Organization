@@ -99,12 +99,14 @@ function ViewSuperAdminsContent() {
           </CardHeader>
           <CardContent>
             <div className="relative">
-              <Search className="absolute left-3 top-3 h-4 w-4 text-muted-foreground" />
+              <Search className="absolute left-3 top-3 h-4 w-4 text-muted-foreground " />
               <Input
                 placeholder="Search super admins..."
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
-                className="pl-10"
+             className="pl-10 border border-gray-300 shadow-none focus:outline-none focus:border-none focus:ring-0"
+
+
               />
             </div>
           </CardContent>
