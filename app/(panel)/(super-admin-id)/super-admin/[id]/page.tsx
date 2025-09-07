@@ -137,8 +137,8 @@ function SuperAdminDetailsContent() {
             <Card className="cursor-pointer transition-all hover:shadow-md">
               <CardHeader>
                 <div className="flex items-center space-x-3">
-                  <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-secondary text-secondary-foreground">
-                    <Users className="h-5 w-5" />
+                  <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-primary text-secondary-foreground">
+                    <Users className="h-5 w-5 text-input" />
                   </div>
                   <div>
                     <CardTitle className="text-lg">Users</CardTitle>
@@ -151,8 +151,8 @@ function SuperAdminDetailsContent() {
             <Card className="cursor-pointer transition-all hover:shadow-md">
               <CardHeader>
                 <div className="flex items-center space-x-3">
-                  <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-accent text-accent-foreground">
-                    <BarChart3 className="h-5 w-5" />
+                  <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-accent text-accent-foreground bg-primary">
+                    <BarChart3 className="h-5 w-5 text-input bg-primary" />
                   </div>
                   <div>
                     <CardTitle className="text-lg">Analytics</CardTitle>

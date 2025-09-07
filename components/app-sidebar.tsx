@@ -160,7 +160,7 @@ export function AppSidebar() {
                   className="data-[state=open]:bg-sidebar-accent data-[state=open]:text-sidebar-accent-foreground"
                 >
                   <div className="flex aspect-square size-8 items-center justify-center rounded-lg bg-sidebar-primary text-sidebar-primary-foreground">
-                    <Shield className="size-4" />
+                    <Shield className="size-4 " />
                   </div>
                   <div className="grid flex-1 text-left text-sm leading-tight">
                     <span className="truncate font-semibold">Admin Panel</span>
@@ -170,7 +170,7 @@ export function AppSidebar() {
                 </SidebarMenuButton>
               </DropdownMenuTrigger>
               <DropdownMenuContent
-                className="w-(--radix-dropdown-menu-trigger-width) min-w-56 rounded-lg"
+                className="w-(--radix-dropdown-menu-trigger-width) min-w-56 rounded-lg "
                 align="start"
                 side="bottom"
                 sideOffset={4}
@@ -187,9 +187,49 @@ export function AppSidebar() {
             </DropdownMenu>
           </SidebarMenuItem>
         </SidebarMenu>
+{/* <CollapsibleTrigger>
+        <div className="px-3 py-2 data-[state=collapsed]:hidden">
+  <div className="relative">
+     
+    <Search className="absolute left-2 top-2.5 h-4 w-4 text-muted-foreground" />
+    <Input
+      placeholder="Search admin panel..."
+      value={searchQuery}
+      onChange={(e) => setSearchQuery(e.target.value)}
+      className="pl-8 h-9"
+    />
+  </div>
+</div>
+</CollapsibleTrigger> */}
 
-        <div className="px-3 py-2">
-          <div className="relative">
+          {/* <Collapsible className="group/collapsible">
+                <SidebarGroup>
+                  <SidebarGroupLabel asChild>
+                    <CollapsibleTrigger>
+                       <div className="px-3 py-2 data-[state=collapsed]:hidden">
+                          <div className="relative">
+     
+                           <Search className="absolute left-2 top-2.5 h-4 w-4 text-muted-foreground" />
+                                  <Input
+                          placeholder="Search admin panel..."
+                   value={searchQuery}
+                    onChange={(e) => setSearchQuery(e.target.value)}
+                     className="pl-8 h-9"
+                        />
+                      </div>
+                                  </div>
+                   
+                    </CollapsibleTrigger>
+                  </SidebarGroupLabel>
+                 
+                </SidebarGroup>
+              </Collapsible> */}
+        <Collapsible>
+  <SidebarGroup>
+    <SidebarGroupLabel asChild>
+      <CollapsibleTrigger>
+        <div className="py-2 flex justify-end w-full">
+          <div className="relative w-48"> {/* adjust width as needed */}
             <Search className="absolute left-2 top-2.5 h-4 w-4 text-muted-foreground" />
             <Input
               placeholder="Search admin panel..."
@@ -199,6 +239,11 @@ export function AppSidebar() {
             />
           </div>
         </div>
+      </CollapsibleTrigger>
+    </SidebarGroupLabel>
+  </SidebarGroup>
+</Collapsible>
+
       </SidebarHeader>
 
       <SidebarContent>
@@ -236,7 +281,7 @@ export function AppSidebar() {
               <SidebarGroup>
                 <SidebarGroupLabel>Quick Actions</SidebarGroupLabel>
                 <SidebarGroupAction title="Add New">
-                  <Plus /> <span className="sr-only">Add New</span>
+                  <Plus /> <span className="sr-only ">Add New</span>
                 </SidebarGroupAction>
                 <SidebarMenu>
                   {filteredQuickActions.map((item) => (
