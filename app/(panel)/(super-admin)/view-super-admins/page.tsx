@@ -63,7 +63,7 @@ function ViewSuperAdminsContent() {
           <Card>
             <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
               <CardTitle className="text-sm font-medium">Total Super Admins</CardTitle>
-              <Shield className="h-4 w-4 text-muted-foreground" />
+              <Shield className="h-5 w-5 text-primary" />
             </CardHeader>
             <CardContent>
               <div className="text-2xl font-bold">{superAdmins.length}</div>
@@ -73,7 +73,7 @@ function ViewSuperAdminsContent() {
           <Card>
             <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
               <CardTitle className="text-sm font-medium">Organizations</CardTitle>
-              <Building className="h-4 w-4 text-muted-foreground" />
+              <Building className="hh-5 w-5 text-primary" />
             </CardHeader>
             <CardContent>
               <div className="text-2xl font-bold">{new Set(superAdmins.map((admin) => admin.orgId)).size}</div>
@@ -83,7 +83,7 @@ function ViewSuperAdminsContent() {
           <Card>
             <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
               <CardTitle className="text-sm font-medium">Filtered Results</CardTitle>
-              <Search className="h-4 w-4 text-muted-foreground" />
+              <Search className="h-5 w-5 text-primary" />
             </CardHeader>
             <CardContent>
               <div className="text-2xl font-bold">{filteredAdmins.length}</div>

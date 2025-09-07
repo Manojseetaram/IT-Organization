@@ -55,10 +55,10 @@ function DashboardContent() {
 
       {/* Stats Cards */}
       <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
-        <Card>
+        <Card className="cursor-pointer transition-all hover:shadow-md">
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
             <CardTitle className="text-sm font-medium">Total Super Admins</CardTitle>
-            <Shield className="h-4 w-4 text-muted-foreground" />
+            <Shield className="h-5 w-5 text-primary" />
           </CardHeader>
           <CardContent>
             <div className="text-2xl font-bold">{superAdmins.length}</div>
@@ -66,10 +66,10 @@ function DashboardContent() {
           </CardContent>
         </Card>
 
-        <Card>
+        <Card className="cursor-pointer transition-all hover:shadow-md">
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
             <CardTitle className="text-sm font-medium">Organizations</CardTitle>
-            <Building className="h-4 w-4 text-muted-foreground" />
+            <Building className="h-5 w-5 text-primary" />
           </CardHeader>
           <CardContent>
             <div className="text-2xl font-bold">{new Set(superAdmins.map((admin) => admin.orgId)).size}</div>
@@ -77,10 +77,10 @@ function DashboardContent() {
           </CardContent>
         </Card>
 
-        <Card>
+        <Card className="cursor-pointer transition-all hover:shadow-md">
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
             <CardTitle className="text-sm font-medium">Recent Additions</CardTitle>
-            <Users className="h-4 w-4 text-muted-foreground" />
+            <Users className="h-5 w-5 text-primary" />
           </CardHeader>
           <CardContent>
             <div className="text-2xl font-bold">
@@ -97,7 +97,7 @@ function DashboardContent() {
           </CardContent>
         </Card>
 
-        <Card>
+        <Card className="cursor-pointer transition-all hover:shadow-md">
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
             <CardTitle className="text-sm font-medium">Your Role</CardTitle>
             <Badge variant="secondary" className="text-xs">
@@ -158,24 +158,25 @@ function DashboardContent() {
             </Button>
           </CardContent>
         </Card>
+        
       </div>
 
       {/* Recent Activity */}
       {superAdmins.length > 0 && (
-        <Card>
+        <Card className="cursor-pointer transition-all hover:shadow-md">
           <CardHeader>
             <CardTitle>Recent Super Admins</CardTitle>
             <CardDescription>Latest super administrator accounts created</CardDescription>
           </CardHeader>
-          <CardContent>
+          <CardContent >
             <div className="space-y-4">
               {superAdmins
                 .sort((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime())
                 .slice(0, 3)
                 .map((admin) => (
-                  <div key={admin.id} className="flex items-center justify-between p-4 border rounded-lg">
+                  <div key={admin.id} className="flex items-center justify-between p-4 border border-gray-200 rounded-lg cursor-pointer transition-all hover:shadow-md">
                     <div className="flex items-center space-x-4">
-                      <div className="flex h-10 w-10 items-center justify-center rounded-full bg-muted">
+                      <div className="flex h-10 w-10 items-center justify-center rounded-full bg-primary text-white">
                         <Shield className="h-5 w-5" />
                       </div>
                       <div>
@@ -187,7 +188,7 @@ function DashboardContent() {
                     </div>
                     <div className="text-right">
                       <p className="text-sm text-muted-foreground">{new Date(admin.createdAt).toLocaleDateString()}</p>
-                      <Badge variant="outline" className="text-xs">
+                      <Badge variant="outline" className="text-xs text-white bg-primary border-none">
                         Super Admin
                       </Badge>
                     </div>
