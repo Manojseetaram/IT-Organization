@@ -139,7 +139,7 @@ function DashboardContent() {
         <Card className="cursor-pointer transition-all hover:shadow-md" onClick={handleViewSuperAdmins}>
           <CardHeader>
             <div className="flex items-center space-x-4">
-              <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-secondary text-secondary-foreground">
+              <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-primary text-input">
                 <Users className="h-6 w-6" />
               </div>
               <div>
@@ -152,7 +152,7 @@ function DashboardContent() {
             <p className="text-sm text-muted-foreground">
               View, edit, and manage all super administrator accounts in the system.
             </p>
-            <Button variant="outline" className="mt-4 w-full bg-transparent">
+            <Button variant="outline" className="mt-4 w-full">
               <Users className="mr-2 h-4 w-4" />
               View All Super Admins
             </Button>

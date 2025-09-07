@@ -71,7 +71,7 @@ export default function LoginPage() {
                   placeholder="Enter Your Email"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  className="pl-10"
+                  className="pl-10 "
                   required
                 />
               </div>
@@ -106,7 +106,7 @@ export default function LoginPage() {
               </div>
             </div>
 
-            <Button type="submit" className="w-full" disabled={loading}>
+            <Button type="submit" className="w-full text-white" disabled={loading}>
               {loading ? (
                 <>
                   <LoadingSpinner size="sm" className="mr-2" />
