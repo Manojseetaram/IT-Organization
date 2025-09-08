@@ -28,13 +28,15 @@ export default function LoginPage() {
 
     try {
       const user = await authenticateUser(email, password)
-      if (user) {
-        toast({
-          title: "Welcome back!",
-          description: "You have been successfully logged in.",
-        })
-        router.push("/dashboard")
-      } else {
+    if (user) {
+  localStorage.setItem("currentUser", user.email) // 👈 store current user
+  toast({
+    title: "Welcome back!",
+    description: "You have been successfully logged in.",
+  })
+  router.push("/dashboard")
+}
+ else {
         toast({
           title: "Login failed",
           description: "Invalid email or password. Please try again.",

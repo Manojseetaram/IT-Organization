@@ -11,7 +11,7 @@ import { Label } from "@/components/ui/label"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { AuthGuard } from "@/components/auth-guard"
 import { LoadingSpinner } from "@/components/ui/loading-spinner"
-import { saveSuperAdmin, type SuperAdmin } from "@/lib/auth"
+import { getUser, saveSuperAdmin, type SuperAdmin } from "@/lib/auth"
 import { useToast } from "@/hooks/use-toast"
 import { ArrowLeft, Mail, Lock, Shield, Building, Eye, EyeOff } from "lucide-react"
 
@@ -59,46 +59,82 @@ function CreateSuperAdminContent() {
     return Object.keys(newErrors).length === 0
   }
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault()
+  // const handleSubmit = async (e: React.FormEvent) => {
+  //   e.preventDefault()
 
-    if (!validateForm()) {
-      return
+  //   if (!validateForm()) {
+  //     return
+  //   }
+
+  //   setLoading(true)
+
+  //   try {
+  //     // Simulate API call delay
+  //     await new Promise((resolve) => setTimeout(resolve, 2000))
+
+  //     const newSuperAdmin: SuperAdmin = {
+  //       id: Date.now().toString(),
+  //       email: formData.email,
+  //       superadminId: formData.superadminId,
+  //       orgId: formData.orgId,
+  //       createdAt: new Date().toISOString(),
+        
+  //     }
+
+  //     saveSuperAdmin(newSuperAdmin)
+
+  //     toast({
+  //       title: "Success!",
+  //       description: "Super admin created successfully.",
+  //     })
+
+  //     router.push("/dashboard")
+  //   } catch (error) {
+  //     toast({
+  //       title: "Error",
+  //       description: "Failed to create super admin. Please try again.",
+  //       variant: "destructive",
+  //     })
+  //   } finally {
+  //     setLoading(false)
+  //   }
+  // }
+const handleSubmit = async (e: React.FormEvent) => {
+  e.preventDefault()
+
+  if (!validateForm()) return
+
+  setLoading(true)
+
+  try {
+    await new Promise((resolve) => setTimeout(resolve, 2000))
+
+    const currentUser = getUser()
+    if (!currentUser) throw new Error("User not logged in")
+
+    const newSuperAdmin: SuperAdmin = {
+      id: Date.now().toString(),
+      email: formData.email,
+      superadminId: formData.superadminId,
+      orgId: formData.orgId,
+      createdAt: new Date().toISOString(),
+      ownerId: currentUser.id, // ✅ store owner
     }
 
-    setLoading(true)
+    saveSuperAdmin(newSuperAdmin)
 
-    try {
-      // Simulate API call delay
-      await new Promise((resolve) => setTimeout(resolve, 2000))
-
-      const newSuperAdmin: SuperAdmin = {
-        id: Date.now().toString(),
-        email: formData.email,
-        superadminId: formData.superadminId,
-        orgId: formData.orgId,
-        createdAt: new Date().toISOString(),
-      }
-
-      saveSuperAdmin(newSuperAdmin)
-
-      toast({
-        title: "Success!",
-        description: "Super admin created successfully.",
-      })
-
-      router.push("/dashboard")
-    } catch (error) {
-      toast({
-        title: "Error",
-        description: "Failed to create super admin. Please try again.",
-        variant: "destructive",
-      })
-    } finally {
-      setLoading(false)
-    }
+    toast({ title: "Success!", description: "Super admin created successfully." })
+    router.push("/dashboard")
+  } catch (error) {
+    toast({
+      title: "Error",
+      description: "Failed to create super admin. Please try again.",
+      variant: "destructive",
+    })
+  } finally {
+    setLoading(false)
   }
-
+}
   const handleInputChange = (field: string, value: string) => {
     setFormData((prev) => ({ ...prev, [field]: value }))
     if (errors[field]) {
@@ -233,7 +269,7 @@ function CreateSuperAdminContent() {
         </Card>
 
         {/* Info Card */}
-        <Card className="cursor-pointer transition-all hover:shadow-md">
+        <Card className="">
           <CardHeader>
             <CardTitle className="text-lg">Important Information</CardTitle>
           </CardHeader>

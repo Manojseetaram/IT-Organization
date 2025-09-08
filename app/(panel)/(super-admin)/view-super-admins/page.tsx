@@ -8,7 +8,7 @@ import { Input } from "@/components/ui/input"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { AuthGuard } from "@/components/auth-guard"
-import { getSuperAdmins, type SuperAdmin } from "@/lib/auth"
+import { getSuperAdmins, getUser, type SuperAdmin } from "@/lib/auth"
 import { ArrowLeft, Search, Shield, Building, Calendar, Eye } from "lucide-react"
 
 function ViewSuperAdminsContent() {
@@ -17,18 +17,42 @@ function ViewSuperAdminsContent() {
   const [filteredAdmins, setFilteredAdmins] = useState<SuperAdmin[]>([])
   const router = useRouter()
 
+  // useEffect(() => {
+  //   const admins = getSuperAdmins()
+  //   setSuperAdmins(admins)
+  //   setFilteredAdmins(admins)
+  // }, [])
+
+  // useEffect(() => {
+  //   const filtered = superAdmins.filter(
+  //     (admin) =>
+  //       admin.email.toLowerCase().includes(searchTerm.toLowerCase()) ||
+  //       admin.superadminId.toLowerCase().includes(searchTerm.toLowerCase()) ||
+  //       admin.orgId.toLowerCase().includes(searchTerm.toLowerCase()),
+  //   )
+  //   setFilteredAdmins(filtered)
+  // }, [searchTerm, superAdmins])
+
+  // const handleViewDetails = (adminId: string) => {
+  //   router.push(`/super-admin/${adminId}`)
+  // }
   useEffect(() => {
+    const currentUser = getUser()
     const admins = getSuperAdmins()
-    setSuperAdmins(admins)
-    setFilteredAdmins(admins)
+    const myAdmins = currentUser
+      ? admins.filter((a) => a.ownerId === currentUser.id)
+      : []
+    setSuperAdmins(myAdmins)
+    setFilteredAdmins(myAdmins)
   }, [])
 
+  // ✅ Handle search inside current user's admins
   useEffect(() => {
     const filtered = superAdmins.filter(
       (admin) =>
         admin.email.toLowerCase().includes(searchTerm.toLowerCase()) ||
         admin.superadminId.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        admin.orgId.toLowerCase().includes(searchTerm.toLowerCase()),
+        admin.orgId.toLowerCase().includes(searchTerm.toLowerCase())
     )
     setFilteredAdmins(filtered)
   }, [searchTerm, superAdmins])
@@ -36,7 +60,6 @@ function ViewSuperAdminsContent() {
   const handleViewDetails = (adminId: string) => {
     router.push(`/super-admin/${adminId}`)
   }
-
   return (
     <div className="min-h-screen bg-background p-4">
       <div className="mx-auto max-w-6xl space-y-6 py-8">

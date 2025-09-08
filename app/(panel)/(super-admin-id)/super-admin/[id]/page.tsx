@@ -9,7 +9,7 @@ import { Badge } from "@/components/ui/badge"
 import { AuthGuard } from "@/components/auth-guard"
 import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar"
 import { AppSidebar } from "@/components/app-sidebar"
-import { getSuperAdmins, type SuperAdmin } from "@/lib/auth"
+import { getSuperAdmins, getUser, type SuperAdmin } from "@/lib/auth"
 import { ArrowLeft, Shield, Building, Mail, Calendar, Settings, Users, BarChart3 } from "lucide-react"
 
 function SuperAdminDetailsContent() {
@@ -18,19 +18,33 @@ function SuperAdminDetailsContent() {
   const params = useParams()
   const router = useRouter()
 
-  useEffect(() => {
-    const adminId = params.id as string
-    const admins = getSuperAdmins()
-    const admin = admins.find((a) => a.id === adminId)
+  // useEffect(() => {
+  //   const adminId = params.id as string
+  //   const admins = getSuperAdmins()
+  //   const admin = admins.find((a) => a.id === adminId)
 
-    if (!admin) {
-      router.push("/view-super-admins")
-      return
-    }
+  //   if (!admin) {
+  //     router.push("/view-super-admins")
+  //     return
+  //   }
 
-    setSuperAdmin(admin)
-    setLoading(false)
-  }, [params.id, router])
+  //   setSuperAdmin(admin)
+  //   setLoading(false)
+  // }, [params.id, router])
+useEffect(() => {
+  const adminId = params.id as string
+  const currentUser = getUser()
+  const admins = getSuperAdmins()
+  const admin = admins.find((a) => a.id === adminId && a.ownerId === currentUser?.id) // ✅ restrict
+
+  if (!admin) {
+    router.push("/view-super-admins")
+    return
+  }
+
+  setSuperAdmin(admin)
+  setLoading(false)
+}, [params.id, router])
 
   if (loading) {
     return (
