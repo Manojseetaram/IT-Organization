@@ -29,7 +29,7 @@ export default function LoginPage() {
     try {
       const user = await authenticateUser(email, password)
     if (user) {
-  localStorage.setItem("currentUser", user.email) // 👈 store current user
+  localStorage.setItem("currentUser", user.email) 
   toast({
     title: "Welcome back!",
     description: "You have been successfully logged in.",
@@ -55,7 +55,7 @@ export default function LoginPage() {
   }
 
   return (
-    <div className="min-h-screen flex items-center justify-center d p-4">
+    <div className="min-h-screen flex items-center justify-center d p-4 ">
       <Card className="w-full max-w-md">
         <CardHeader className="space-y-1 text-center">
           <CardTitle className="text-2xl font-bold">Welcome back</CardTitle>

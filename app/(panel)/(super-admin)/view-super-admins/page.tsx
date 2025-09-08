@@ -72,8 +72,8 @@ function ViewSuperAdminsContent() {
               </Link>
             </Button>
             <div>
-              <h1 className="text-3xl font-bold tracking-tight">Super Administrators</h1>
-              <p className="text-muted-foreground">Manage and view all super administrator accounts</p>
+              <h1 className="text-3xl font-bold tracking-tight">Super Admins</h1>
+              <p className="text-muted-foreground">Manage and view all Super Admin accounts</p>
             </div>
           </div>
           <Button asChild>
@@ -146,7 +146,7 @@ function ViewSuperAdminsContent() {
                 </h3>
                 <p className="text-muted-foreground text-center mb-4">
                   {superAdmins.length === 0
-                    ? "Get started by creating your first super administrator account."
+                    ? "Get started by creating your first Super Admin account."
                     : "Try adjusting your search terms or clear the search to see all super admins."}
                 </p>
                 {superAdmins.length === 0 && (

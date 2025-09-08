@@ -267,7 +267,7 @@ function SidebarTrigger({
       variant="ghost"
       size="icon"
     className={cn(
-  "size-7 bg-primary m-5 hover:bg-none hover:text-inherit hover:shadow-none",
+  "size-9 bg-primary m-5 hover:text-primary hover:bg-primary",
   className
 )}
 

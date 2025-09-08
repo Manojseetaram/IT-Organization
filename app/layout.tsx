@@ -10,7 +10,7 @@ import "./globals.css"
 
 export const metadata: Metadata = {
   title: "Admin Dashboard - Super Admin Management",
-  description: "Professional admin dashboard for managing super administrators",
+  description: "Professional admin dashboard for managing Super Admins",
   generator: "v0.app",
 }
 

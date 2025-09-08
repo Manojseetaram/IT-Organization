@@ -40,9 +40,9 @@ function DashboardContent() {
   }
 
   return (
-    <div className="flex-1 space-y-6 p-4 md:p-8 pt-6">
+    <div className="flex-1 space-y-6 p-4 md:p-8 ">
       {/* Header */}
-      <div className="flex items-center justify-between">
+      <div className="flex items-center justify-between mt-[-20px]">
         <div>
           <h1 className="text-3xl font-bold tracking-tight">Admin Dashboard</h1>
           <p className="text-muted-foreground font-medium ">Welcome back, <span className="text-primary ">{user?.email}</span> </p>
@@ -62,7 +62,7 @@ function DashboardContent() {
           </CardHeader>
           <CardContent>
             <div className="text-2xl font-bold">{superAdmins.length}</div>
-            <p className="text-xs text-muted-foreground">Active super administrators</p>
+            <p className="text-xs text-muted-foreground">Active Super Admins</p>
           </CardContent>
         </Card>
 
@@ -121,7 +121,7 @@ function DashboardContent() {
               </div>
               <div>
                 <CardTitle>Create Super Admin</CardTitle>
-                <CardDescription>Add a new super administrator to the system</CardDescription>
+                <CardDescription>Add a new Super Admin to the system</CardDescription>
               </div>
             </div>
           </CardHeader>
@@ -144,13 +144,13 @@ function DashboardContent() {
               </div>
               <div>
                 <CardTitle>View Super Admins</CardTitle>
-                <CardDescription>Manage existing super administrator accounts</CardDescription>
+                <CardDescription>Manage existing Super Admin accounts</CardDescription>
               </div>
             </div>
           </CardHeader>
           <CardContent>
             <p className="text-sm text-muted-foreground">
-              View, edit, and manage all super administrator accounts in the system.
+              View, edit, and manage all Super Admin accounts in the system.
             </p>
             <Button variant="outline" className="mt-4 w-full">
               <Users className="mr-2 h-4 w-4" />
@@ -166,7 +166,7 @@ function DashboardContent() {
         <Card className="cursor-pointer transition-all hover:shadow-md">
           <CardHeader>
             <CardTitle>Recent Super Admins</CardTitle>
-            <CardDescription>Latest super administrator accounts created</CardDescription>
+            <CardDescription>Latest Super Admin accounts created</CardDescription>
           </CardHeader>
           <CardContent >
             <div className="space-y-4">

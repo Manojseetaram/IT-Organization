@@ -154,7 +154,7 @@ const handleSubmit = async (e: React.FormEvent) => {
           </Button>
           <div>
             <h1 className="text-3xl font-bold tracking-tight">Create Super Admin</h1>
-            <p className="text-muted-foreground">Add a new super administrator to the system</p>
+            <p className="text-muted-foreground">Add a new Super Admin to the system</p>
           </div>
         </div>
 
@@ -162,7 +162,7 @@ const handleSubmit = async (e: React.FormEvent) => {
         <Card className="cursor-pointer transition-all hover:shadow-md">
           <CardHeader>
             <CardTitle>Super Admin Details</CardTitle>
-            <CardDescription>Fill in the information below to create a new super administrator account</CardDescription>
+            <CardDescription>Fill in the information below to create a new Super Admin account</CardDescription>
           </CardHeader>
           <CardContent>
             <form onSubmit={handleSubmit} className="space-y-6">
