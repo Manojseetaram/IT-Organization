@@ -155,7 +155,12 @@ export function AppSidebar() {
           <SidebarMenuItem>
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
-                <SidebarMenuButton
+           
+                     <Collapsible>
+  <SidebarGroup>
+    <SidebarGroupLabel asChild>
+      <CollapsibleTrigger  asChild>
+           <SidebarMenuButton
                   size="lg"
                   className="data-[state=open]:bg-sidebar-accent data-[state=open]:text-sidebar-accent-foreground"
                 >
@@ -167,9 +172,13 @@ export function AppSidebar() {
                     <span className="truncate text-xs">Super Admin System</span>
                   </div>
                   <ChevronUp className="ml-auto" />
-                </SidebarMenuButton>
+                </SidebarMenuButton> 
+      </CollapsibleTrigger>
+    </SidebarGroupLabel>
+  </SidebarGroup>
+</Collapsible>
               </DropdownMenuTrigger>
-              <DropdownMenuContent
+              {/* <DropdownMenuContent
                 className="w-(--radix-dropdown-menu-trigger-width) min-w-56 rounded-lg "
                 align="start"
                 side="bottom"
@@ -183,7 +192,7 @@ export function AppSidebar() {
                   <Building className="mr-2 h-4 w-4" />
                   <span>Organization Hub</span>
                 </DropdownMenuItem>
-              </DropdownMenuContent>
+              </DropdownMenuContent> */}
             </DropdownMenu>
           </SidebarMenuItem>
         </SidebarMenu>
@@ -228,7 +237,7 @@ export function AppSidebar() {
   <SidebarGroup>
     <SidebarGroupLabel asChild>
       <CollapsibleTrigger>
-        <div className="py-2 flex justify-end w-full">
+        <div className="py-2 flex w-full  ">
           <div className="relative w-48"> {/* adjust width as needed */}
             <Search className="absolute left-2 top-2.5 h-4 w-4 text-muted-foreground" />
             <Input
@@ -439,7 +448,7 @@ export function AppSidebar() {
           <SidebarMenuItem>
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
-                <SidebarMenuButton
+                {/* <SidebarMenuButton
                   size="lg"
                   className="data-[state=open]:bg-sidebar-accent data-[state=open]:text-sidebar-accent-foreground"
                 >
@@ -451,9 +460,30 @@ export function AppSidebar() {
                     <span className="truncate text-xs">{user?.email || "admin@example.com"}</span>
                   </div>
                   <ChevronUp className="ml-auto size-4" />
-                </SidebarMenuButton>
+                </SidebarMenuButton> */}
+                 <Collapsible>
+  <SidebarGroup>
+    <SidebarGroupLabel asChild>
+      <CollapsibleTrigger>
+        <SidebarMenuButton
+                  size="lg"
+                  className="data-[state=open]:bg-sidebar-accent data-[state=open]:text-sidebar-accent-foreground"
+                >
+                  <div className="flex aspect-square size-8 items-center justify-center rounded-lg bg-primary text-primary-foreground">
+                    <User className="size-4" />
+                  </div>
+                  <div className="grid flex-1 text-left text-sm leading-tight">
+                    <span className="truncate font-semibold">{user?.role === "admin" ? "Administrator" : "User"}</span>
+                    <span className="truncate text-xs">{user?.email || "admin@example.com"}</span>
+                  </div>
+                  <ChevronUp className="ml-auto size-4" />
+                </SidebarMenuButton> 
+      </CollapsibleTrigger>
+    </SidebarGroupLabel>
+  </SidebarGroup>
+</Collapsible>
               </DropdownMenuTrigger>
-              <DropdownMenuContent
+              {/* <DropdownMenuContent
                 className="w-(--radix-dropdown-menu-trigger-width) min-w-56 rounded-lg"
                 side="bottom"
                 align="end"
@@ -471,7 +501,7 @@ export function AppSidebar() {
                   <LogOut className="mr-2 h-4 w-4" />
                   Sign out
                 </DropdownMenuItem>
-              </DropdownMenuContent>
+              </DropdownMenuContent> */}
             </DropdownMenu>
           </SidebarMenuItem>
         </SidebarMenu>
