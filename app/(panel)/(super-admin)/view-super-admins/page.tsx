@@ -60,7 +60,7 @@ function ViewSuperAdminsContent() {
 
         {/* Stats */}
         <div className="grid gap-4 md:grid-cols-3">
-          <Card>
+          <Card className="cursor-pointer transition-all hover:shadow-md">
             <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
               <CardTitle className="text-sm font-medium">Total Super Admins</CardTitle>
               <Shield className="h-5 w-5 text-primary" />
@@ -70,7 +70,7 @@ function ViewSuperAdminsContent() {
             </CardContent>
           </Card>
 
-          <Card>
+          <Card className="cursor-pointer transition-all hover:shadow-md">
             <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
               <CardTitle className="text-sm font-medium">Organizations</CardTitle>
               <Building className="hh-5 w-5 text-primary" />
@@ -80,7 +80,7 @@ function ViewSuperAdminsContent() {
             </CardContent>
           </Card>
 
-          <Card>
+          <Card className="cursor-pointer transition-all hover:shadow-md">
             <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
               <CardTitle className="text-sm font-medium">Filtered Results</CardTitle>
               <Search className="h-5 w-5 text-primary" />
@@ -104,7 +104,7 @@ function ViewSuperAdminsContent() {
                 placeholder="Search super admins..."
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
-             className="pl-10 border border-gray-300 shadow-none focus:outline-none focus:border-none focus:ring-0"
+             className="pl-10 border border-gray-300  focus:outline-none focus:border-gray-300 focus:ring-0"
 
 
               />

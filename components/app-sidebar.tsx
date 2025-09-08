@@ -86,11 +86,11 @@ const quickActions = [
     url: "#",
     icon: Users,
   },
-  {
-    name: "System Settings",
-    url: "#",
-    icon: Settings,
-  },
+  // {
+  //   name: "System Settings",
+  //   url: "#",
+  //   icon: Settings,
+  // },
 ]
 
 const adminTools = [
@@ -325,85 +325,7 @@ export function AppSidebar() {
               </SidebarGroup>
             )}
 
-            {!searchQuery && (
-              <Collapsible defaultOpen className="group/collapsible">
-                <SidebarGroup>
-                  <SidebarGroupLabel asChild>
-                    <CollapsibleTrigger>
-                      System Status
-                      <ChevronRight className="ml-auto transition-transform duration-200 group-data-[state=open]/collapsible:rotate-90" />
-                    </CollapsibleTrigger>
-                  </SidebarGroupLabel>
-                  <CollapsibleContent>
-                    <SidebarGroupContent>
-                      <SidebarMenu>
-                        <SidebarMenuItem>
-                          <SidebarMenuButton asChild>
-                            <a href="#">
-                              <Bell />
-                              <span>Notifications</span>
-                            </a>
-                          </SidebarMenuButton>
-                          <SidebarMenuBadge>3</SidebarMenuBadge>
-                        </SidebarMenuItem>
-                        <SidebarMenuItem>
-                          <SidebarMenuButton asChild>
-                            <a href="#">
-                              <BarChart3 />
-                              <span>System Health</span>
-                            </a>
-                          </SidebarMenuButton>
-                        </SidebarMenuItem>
-                      </SidebarMenu>
-                    </SidebarGroupContent>
-                  </CollapsibleContent>
-                </SidebarGroup>
-              </Collapsible>
-            )}
-
-            {(!searchQuery || filteredAdminTools.length > 0) && (
-              <Collapsible defaultOpen className="group/collapsible">
-                <SidebarGroup>
-                  <SidebarGroupLabel asChild>
-                    <CollapsibleTrigger>
-                      Admin Tools
-                      <ChevronRight className="ml-auto transition-transform duration-200 group-data-[state=open]/collapsible:rotate-90" />
-                    </CollapsibleTrigger>
-                  </SidebarGroupLabel>
-                  <CollapsibleContent>
-                    <SidebarGroupContent>
-                      <SidebarMenu>
-                        <Collapsible defaultOpen className="group/collapsible">
-                          <SidebarMenuItem>
-                            <CollapsibleTrigger asChild>
-                              <SidebarMenuButton>
-                                <Folder />
-                                <span>Management</span>
-                                <ChevronRight className="ml-auto transition-transform duration-200 group-data-[state=open]/collapsible:rotate-90" />
-                              </SidebarMenuButton>
-                            </CollapsibleTrigger>
-                            <CollapsibleContent>
-                              <SidebarMenuSub>
-                                {filteredAdminTools.map((subItem) => (
-                                  <SidebarMenuSubItem key={subItem.name}>
-                                    <SidebarMenuSubButton asChild>
-                                      <a href={subItem.url}>
-                                        <subItem.icon />
-                                        <span>{subItem.name}</span>
-                                      </a>
-                                    </SidebarMenuSubButton>
-                                  </SidebarMenuSubItem>
-                                ))}
-                              </SidebarMenuSub>
-                            </CollapsibleContent>
-                          </SidebarMenuItem>
-                        </Collapsible>
-                      </SidebarMenu>
-                    </SidebarGroupContent>
-                  </CollapsibleContent>
-                </SidebarGroup>
-              </Collapsible>
-            )}
+      
 
             {!searchQuery && (
               <Collapsible className="group/collapsible">

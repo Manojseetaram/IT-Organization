@@ -45,7 +45,7 @@ function DashboardContent() {
       <div className="flex items-center justify-between">
         <div>
           <h1 className="text-3xl font-bold tracking-tight">Admin Dashboard</h1>
-          <p className="text-muted-foreground">Welcome back, {user?.email}</p>
+          <p className="text-muted-foreground font-medium ">Welcome back, <span className="text-primary ">{user?.email}</span> </p>
         </div>
         <Button variant="outline" onClick={handleLogout}>
           <LogOut className="mr-2 h-4 w-4" />

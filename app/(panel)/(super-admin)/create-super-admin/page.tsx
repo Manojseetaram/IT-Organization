@@ -123,7 +123,7 @@ function CreateSuperAdminContent() {
         </div>
 
         {/* Form */}
-        <Card>
+        <Card className="cursor-pointer transition-all hover:shadow-md">
           <CardHeader>
             <CardTitle>Super Admin Details</CardTitle>
             <CardDescription>Fill in the information below to create a new super administrator account</CardDescription>
@@ -233,7 +233,7 @@ function CreateSuperAdminContent() {
         </Card>
 
         {/* Info Card */}
-        <Card>
+        <Card className="cursor-pointer transition-all hover:shadow-md">
           <CardHeader>
             <CardTitle className="text-lg">Important Information</CardTitle>
           </CardHeader>
